@@ -1,0 +1,31 @@
+ProductID,Name,Category,Price,Stock
+101,Product_1,Electronics,859.59,78
+102,Product_2,Electronics,663.52,42
+103,Product_3,Home Goods,1482.68,143
+104,Product_4,Clothing,162.05,103
+105,Product_5,Clothing,321.23,175
+106,Product_6,Electronics,250.35,62
+107,Product_7,Electronix,983.13,154
+108,Product_8,Clothing,387.4,128
+109,Product_9,Electronics,704.8,189
+110,Product_10,Home Goods,374.19,30
+111,Product_11,Home Goods,246.86,135
+112,Product_12,Electronix,174.46,-6
+113,Product_13,Clothing,987.93,21
+114,Product_14,Electronics,215.89,38
+115,Product_15,Electronics,302.91,173
+116,Product_16,Electronix,559.4,16
+117,Product_17,Electronics,1233.28,-10
+118,Product_18,Electronics,154.68,66
+119,Product_19,Electronix,1258.54,23
+120,Product_20,Home Goods,153.19,84
+121,Product_21,Electronix,1464.92,-9
+122,Product_22,Electronix,708.29,-18
+123,Product_23,Home Goods,1465.37,31
+124,Product_24,Home Goods,911.22,60
+125,Product_25,Electronix,1111.5,12
+126,Product_26,Clothing,68.39,162
+127,Product_27,Home Goods,431.38,108
+128,Product_28,Electronix,189.09,18
+129,Product_29,Electronics,451.25,-1
+130,Product_30,Clothing,186.9,154
