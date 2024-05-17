@@ -4,6 +4,8 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
+import seaborn as sns
+from sklearn.metrics import mean_absolute_error, r2_score
 
 # Load the data
 products = pd.read_csv('/Users/mattobrien/Documents/TestDataV2/Enhanced_Products.csv')
@@ -71,4 +73,41 @@ full_data['Predicted_Price'] = model.predict(X)
 full_data['Price_Change_Percentage'] = ((full_data['Predicted_Price'] - full_data['Price']) / full_data['Price']) * 100
 product_example = full_data.iloc[0]
 price_change_explanation = f"The model suggests a {product_example['Price_Change_Percentage']:.2f}% change in price for {product_example['Name']}, primarily due to changes in stock levels and demand."
+print(price_change_explanation)
+
+# Additional Metrics
+mae = mean_absolute_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+print(f"Mean Absolute Error: {mae}")
+print(f"R-squared: {r2}")
+
+# Distribution of Predicted Prices
+plt.figure(figsize=(10, 5))
+sns.histplot(full_data['Predicted_Price'], bins=20, kde=True)
+plt.title('Distribution of Predicted Prices')
+plt.xlabel('Predicted Price')
+plt.ylabel('Frequency')
+plt.show()
+
+# Feature Importance Plot
+feature_importances = model.feature_importances_
+features = X.columns
+importance_df = pd.DataFrame({'Feature': features, 'Importance': feature_importances})
+importance_df = importance_df.sort_values(by='Importance', ascending=False)
+
+plt.figure(figsize=(10, 5))
+sns.barplot(x='Importance', y='Feature', data=importance_df)
+plt.title('Feature Importance')
+plt.xlabel('Importance')
+plt.ylabel('Feature')
+plt.show()
+
+# Include the additional metrics in the price change explanation
+price_change_explanation = (
+    f"The model suggests a {product_example['Price_Change_Percentage']:.2f}% change in price for {product_example['Name']}, "
+    f"primarily due to changes in stock levels and demand.\n"
+    f"Additional model evaluation metrics:\n"
+    f"- Mean Absolute Error (MAE): {mae:.2f}\n"
+    f"- R-squared (R²): {r2:.2f}"
+)
 print(price_change_explanation)
